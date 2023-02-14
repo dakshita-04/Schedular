@@ -1,6 +1,6 @@
-// import { initializeApp } from "firebase/app";
-// // import { getAnalytics } from "firebase/analytics";
-// import {getAuth} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+import {getAuth} from "firebase/auth";
 import firebase from 'firebase/compat/app';
 import "firebase/compat/auth";
 
@@ -14,10 +14,10 @@ const firebaseConfig = {
   measurementId: "G-FB93W69VRC"
 };
 
-// Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
-// export {auth}
+//  export {auth}
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
+export default firebase;

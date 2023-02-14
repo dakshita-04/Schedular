@@ -1,95 +1,82 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import { useUserAuth } from "./context/UserAuthContext";
+// import { auth } from "./firebase";
+import firebase from "./firebase";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const PhoneSignUp = () => {
-  const [error, setError] = useState("");
-  const [number, setNumber] = useState("");
-  const [flag, setFlag] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [result, setResult] = useState("");
-  const { setUpRecaptha } = useUserAuth();
-  console.log(useUserAuth());
-  const navigate = useNavigate();
+const PhoneVerification = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [verificationId, setVerificationId] = useState("");
+  const [code, setCode] = useState("");
 
-  const getOtp = async (e) => {
-    e.preventDefault();
-    console.log(number);
-    setError("");
-    if (number === "" || number === undefined)
-      return setError("Please enter a valid phone number!");
-    try {
-      const response = await setUpRecaptha(number);
-      setResult(response);
-      setFlag(true);
-    } catch (err) {
-      setError(err.message);
-    }
+  const handleSendCode = () => {
+    const recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+      "send-code-button",
+      {
+        size: "invisible",
+      }
+    );
+
+    firebase
+      .auth()
+      .signInWithPhoneNumber(phoneNumber, recaptchaVerifier)
+      .then((confirmationResult) => {
+        setVerificationId(confirmationResult.verificationId);
+        alert("Verification code sent to your phone.");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
-  const verifyOtp = async (e) => {
-    e.preventDefault();
-    setError("");
-    if (otp === "" || otp === null) return;
-    try {
-      await result.confirm(otp);
-      navigate("/");
-    } catch (err) {
-      setError(err.message);
-    }
+  const handleVerifyCode = () => {
+    const credential = firebase.auth.PhoneAuthProvider.credential(
+      verificationId,
+      code
+    );
+
+    firebase
+      .auth()
+      .signInWithCredential(credential)
+      .then((userCredential) => {
+        alert("Phone verification successful!");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
-    <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Firebase Phone Auth</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={getOtp} style={{ display: !flag ? "block" : "none" }}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <PhoneInput
-              defaultCountry="IN"
-              value={number}
-              onChange={setNumber}
-              placeholder="Enter Phone Number"
-            />
-            <div id="recaptcha-container"></div>
-          </Form.Group>
-          <div className="button-right">
-            <Link to="/">
-              <Button variant="secondary">Cancel</Button>
-            </Link>
-            &nbsp;
-            <Button type="submit" variant="primary">
-              Send Otp
-            </Button>
-          </div>
-        </Form>
-
-        <Form onSubmit={verifyOtp} style={{ display: flag ? "block" : "none" }}>
-          <Form.Group className="mb-3" controlId="formBasicOtp">
-            <Form.Control
-              type="otp"
-              placeholder="Enter OTP"
-              onChange={(e) => setOtp(e.target.value)}
-            />
-          </Form.Group>
-          <div className="button-right">
-            <Link to="/">
-              <Button variant="secondary">Cancel</Button>
-            </Link>
-            &nbsp;
-            <Button type="submit" variant="primary">
-              Verify
-            </Button>
-          </div>
-        </Form>
-      </div>
-    </>
+    <div style={{marginLeft:"20px"}}>
+      <h2 style={{ fontWeight: 700,marginTop:"20px" }}>Verify Your Phone Number</h2>
+      <input
+        type="text"
+        placeholder="Phone Number"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        className="form-control"
+        style={{ fontSize: '12px',width:"80%",marginTop:"30px",marginBottom:"20px" }}
+      />
+      <button
+        id="send-code-button"
+        onClick={handleSendCode}
+        className="btn btn-primary"
+        style={{width:"180px",height:"30px",fontSize:"14px",backgroundColor:"#337AB7"}}
+      >
+        Send Code
+      </button>
+      <input
+        type="text"
+        placeholder="Verification Code"
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+        className="form-control"
+        style={{ fontSize: '12px',width:"80%",marginTop:"30px",marginBottom:"20px" }}
+      />
+      <button onClick={handleVerifyCode} className="btn btn-success" style={{width:"180px",height:"30px",fontSize:"14px",marginBottom:"30px"}}>
+        Verify Code
+      </button>
+    </div>
   );
 };
 
-export default PhoneSignUp;
+export default PhoneVerification;

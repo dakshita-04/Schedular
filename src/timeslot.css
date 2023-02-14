@@ -16,12 +16,12 @@
   .button2 {
     background-color: white; 
     color: black; 
-    border: 2px solid #296293;
+    border: 2px solid #337AB7;
     width: "300px";
   }
   
   .button2:hover {
-    background-color: #296293;
+    background-color: #337AB7;
     color: white;
   }  
 

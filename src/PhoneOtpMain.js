@@ -1,16 +1,16 @@
 import React from "react";
 import image from "./QIT Logo.png";
-import Avatar from "@material-ui/core/Avatar";
 import { FaClock } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import Card from "./ImageMain";
-import FormMain from "./FormMain";
 import { Link } from "react-router-dom";
+import PhoneVerification from "./PhoneOtp";
 import { useNavigate } from 'react-router-dom';
 
-const Form = () => {
-  const navigate = useNavigate()
+
+const PhoneOtpMain = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Card>
@@ -27,7 +27,7 @@ const Form = () => {
                   }}
                   onClick={() => navigate(-1)}
                 />
-            
+              
               <img
                 src={image}
                 alt=""
@@ -74,7 +74,7 @@ const Form = () => {
               </div>
             </div>
             <div className="col-md-7">
-              <FormMain />
+              <PhoneVerification />
             </div>
           </div>
         </div>
@@ -82,4 +82,4 @@ const Form = () => {
     </div>
   );
 };
-export default Form;
+export default PhoneOtpMain;

@@ -31,9 +31,11 @@ import Validator, {
 import { Popup } from "devextreme-react/popup";
 import ValidationGroup from "devextreme-react/validation-group";
 import { Link } from "react-router-dom";
+import validator from 'validator'
 
 
 const FormMain = () => {
+  
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [addGuestEmail, setAddGuestEmail] = useState("");
@@ -41,13 +43,23 @@ const FormMain = () => {
   const [enterOtp, setEnterOtp] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [subject, setSubject] = useState("");
-
   const namePattern = /^[^0-9]+$/;
   const phonePattern = /^[02-9]\d{9}$/;
   const phoneRules = {
     X: /[02-9]/,
   };
-
+  // For Email Validation
+  const [emailError, setEmailError] = useState('')
+  const validateEmail = (e) => {
+    var email = e.target.value
+  
+    if (validator.isEmail(email)) {
+      setEmailError('Valid Email :)')
+    } else {
+      setEmailError('Enter valid Email!')
+    }
+  }
+  
   const scheduleEvent = async (e) => {
     // e.preventDefault();
     if (
@@ -153,12 +165,15 @@ const FormMain = () => {
                   label="Email Address"
                   labelMode="floating"
                   defaultValue={email}
+                  id="userEmail"
+                  onChange={(e) => validateEmail(e)}
                   onValueChanged={(e) => {
                     setEmail(e.value);
                     console.log(e.value);
                   }}
                   height={40}
                 >
+                {emailError}
                   <Validator>
                     <RequiredRule message="Email is required" />
                     <EmailRule message="Email is invalid" />
@@ -225,7 +240,6 @@ const FormMain = () => {
                 >
                   <Validator>
                     <RequiredRule message="Subject is required" />
-
                     <StringLengthRule
                       message="Name must have at least 4 symbols"
                       min={4}
@@ -241,7 +255,8 @@ const FormMain = () => {
             marginTop: "20px",
           }}
         >
-        <Link to="./phoneAuthentication"> <Button
+        <Link to="./phoneAuthentication" style={{textDecoration:"none"}}> 
+        <Button
         width={160}
         height={40}
         text="Schedule Event"

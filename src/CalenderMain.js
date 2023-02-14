@@ -124,7 +124,7 @@ export default function CalendarMain() {
         disabled={disabled}
         zoomLevel={zoomLevel}
         cellRender={useCellTemplate ? CustomCell : null}
-        width={400}
+        width="auto"
       ></Calendar>
       <Popup
         visible={isPopupVisible}

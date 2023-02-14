@@ -8,17 +8,18 @@ import { Link } from "react-router-dom";
 // import Button from "devextreme-react/button";
 import Button from '@mui/material/Button';
 import "./timeslot.css";
+import { useNavigate } from 'react-router-dom';
 
 
 const TimeSlot = () => {
-    // let navigate = useNavigate();
+    const navigate = useNavigate();
   return (
     <div>
       <Card>
         <div className="Container">
           <div className="row">
             <div className="col-md-5">
-              <Link to="/">
+              
                 <FaArrowLeft
                   style={{
                     fontSize: "25px",
@@ -26,8 +27,9 @@ const TimeSlot = () => {
                     marginLeft: "30px",
                     marginBottom: "-30px",
                   }}
+                  onClick={() => navigate(-1)}
                 />
-              </Link>
+              
               <img
                 src={image}
                 alt=""
@@ -100,8 +102,8 @@ const TimeSlot = () => {
               <button className="button button2" >7:00 pm</button>
               <button className="button button2" >7:00 pm</button>
               <br/>
-              <Link to="./enterDetails/">
-              <Button variant="contained" style={{marginTop:"30px",width:"200px",height:"40px",backgroundColor:"#296293",fontSize:"15px"}}
+              <Link to="./enterDetails/" style={{textDecoration:"none"}}>
+              <Button variant="contained" style={{marginTop:"30px",width:"200px",height:"40px",backgroundColor:"#337AB7",fontSize:"15px"}}
               
               >Submit</Button>
               
