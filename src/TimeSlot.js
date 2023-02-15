@@ -90,7 +90,7 @@ const TimeSlot = () => {
               <div style={{marginBottom:"50px"}}>
               <Form>
               <Form.Group>
-              <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+              <Button className="button1" style={{backgroundColor:"#337AB7",marginRight:"20px"}}>
               <Form.Check
                   type="radio"
                   name="radio-btn-group"
@@ -99,7 +99,7 @@ const TimeSlot = () => {
                   style={{fontSize:"15px"}}
                 />
               </Button>
-              <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+              <Button className="button1" style={{backgroundColor:"#337AB7"}}>
               <Form.Check
               type="radio"
               name="radio-btn-group"
@@ -109,7 +109,7 @@ const TimeSlot = () => {
             />
               </Button>
               <br/>
-                <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+                <Button className="button1" style={{backgroundColor:"#337AB7",marginRight:"20px"}}>
                 <Form.Check
                 type="radio"
                 name="radio-btn-group"
@@ -118,7 +118,7 @@ const TimeSlot = () => {
                 style={{fontSize:"15px"}}
               />
                 </Button>
-                <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+                <Button className="button1" style={{backgroundColor:"#337AB7"}}>
               <Form.Check
               type="radio"
               name="radio-btn-group"
@@ -128,7 +128,7 @@ const TimeSlot = () => {
             />
               </Button>
                 <br/>
-               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7",marginRight:"20px"}}>
                <Form.Check
                type="radio"
                name="radio-btn-group"
@@ -137,7 +137,7 @@ const TimeSlot = () => {
                style={{fontSize:"15px"}}
              />
                </Button>
-               <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
               <Form.Check
               type="radio"
               name="radio-btn-group"
@@ -147,7 +147,7 @@ const TimeSlot = () => {
             />
               </Button>
                <br/>
-               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7",marginRight:"20px"}}>
                <Form.Check
                type="radio"
                name="radio-btn-group"
@@ -156,7 +156,7 @@ const TimeSlot = () => {
                style={{fontSize:"15px"}}
              />
                </Button>
-               <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
               <Form.Check
               type="radio"
               name="radio-btn-group"
@@ -166,7 +166,7 @@ const TimeSlot = () => {
             />
               </Button>
                <br/>
-               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7",marginRight:"20px"}}>
                <Form.Check
                type="radio"
                name="radio-btn-group"
@@ -175,7 +175,7 @@ const TimeSlot = () => {
                style={{fontSize:"15px"}}
              />
                </Button>
-               <Button className="button2" style={{backgroundColor:"#337AB7"}}>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
               <Form.Check
               type="radio"
               name="radio-btn-group"
