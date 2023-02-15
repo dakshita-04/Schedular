@@ -13,8 +13,8 @@ export default function App() {
     <Routes>
     <Route path="/" element={<BootstrapCard />} />
     <Route path="/scheduleTime" element={<TimeSlot/>}/>
-    <Route path="/scheduleTime/enterDetails" element={<Form />} />
-    <Route path="/scheduleTime/enterDetails/phoneAuthentication" element={<PhoneOtpMain/>}/>
+    <Route path="/scheduleTime/phoneAuthentication/" element={<PhoneOtpMain/>}/>
+    <Route path="/scheduleTime/phoneAuthentication/enterDetails" element={<Form />} />
     </Routes>
   </BrowserRouter>
     </div>

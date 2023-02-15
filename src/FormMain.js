@@ -35,7 +35,6 @@ import validator from 'validator'
 
 
 const FormMain = () => {
-  
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [addGuestEmail, setAddGuestEmail] = useState("");
@@ -226,7 +225,6 @@ const FormMain = () => {
                 </TextBox>
                 <br />
               </GroupItem>
-
               <GroupItem colSpan={2}>
                 <TextArea
                   label="Subject"

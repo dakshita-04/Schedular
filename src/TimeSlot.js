@@ -6,9 +6,10 @@ import { FaArrowLeft } from "react-icons/fa";
 import Card from "./ImageMain";
 import { Link } from "react-router-dom";
 // import Button from "devextreme-react/button";
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import "./timeslot.css";
 import { useNavigate } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 
 
 const TimeSlot = () => {
@@ -87,23 +88,109 @@ const TimeSlot = () => {
                 Select a Time Slot
               </h3>
               <div style={{marginBottom:"50px"}}>
-              <button className="button button2" >7:00 pm</button>
-              <button className="button button2" >7:00 pm</button>
+              <Form>
+              <Form.Group>
+              <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+              <Form.Check
+                  type="radio"
+                  name="radio-btn-group"
+                  id="radio-btn-1"
+                  label="7:00 PM"
+                  style={{fontSize:"15px"}}
+                />
+              </Button>
+              <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+              <Form.Check
+              type="radio"
+              name="radio-btn-group"
+              id="radio-btn-2"
+              label="10:00 AM"
+              style={{fontSize:"15px"}}
+            />
+              </Button>
               <br/>
-              <button className="button button2" >7:00 pm</button>
-              <button className="button button2" >7:00 pm</button>
+                <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+                <Form.Check
+                type="radio"
+                name="radio-btn-group"
+                id="radio-btn-3"
+                label="11:00 AM"
+                style={{fontSize:"15px"}}
+              />
+                </Button>
+                <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+              <Form.Check
+              type="radio"
+              name="radio-btn-group"
+              id="radio-btn-4"
+              label="2:00 PM"
+              style={{fontSize:"15px"}}
+            />
+              </Button>
+                <br/>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Form.Check
+               type="radio"
+               name="radio-btn-group"
+               id="radio-btn-5"
+               label="3:00 PM"
+               style={{fontSize:"15px"}}
+             />
+               </Button>
+               <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+              <Form.Check
+              type="radio"
+              name="radio-btn-group"
+              id="radio-btn-6"
+              label="12:00 PM"
+              style={{fontSize:"15px"}}
+            />
+              </Button>
+               <br/>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Form.Check
+               type="radio"
+               name="radio-btn-group"
+               id="radio-btn-7"
+               label="1:30 PM"
+               style={{fontSize:"15px"}}
+             />
+               </Button>
+               <Button className="button1" style={{marginLeft:"20px",backgroundColor:"#337AB7"}}>
+              <Form.Check
+              type="radio"
+              name="radio-btn-group"
+              id="radio-btn-8"
+              label="5:00 PM"
+              style={{fontSize:"15px"}}
+            />
+              </Button>
+               <br/>
+               <Button className="button1" style={{backgroundColor:"#337AB7"}}>
+               <Form.Check
+               type="radio"
+               name="radio-btn-group"
+               id="radio-btn-9"
+               label="7:00 PM"
+               style={{fontSize:"15px"}}
+             />
+               </Button>
+               <Button className="button2" style={{backgroundColor:"#337AB7"}}>
+              <Form.Check
+              type="radio"
+              name="radio-btn-group"
+              id="radio-btn-10"
+              label="11:00 AM"
+              style={{fontSize:"15px",fontWeight:"normal"}}
+            />
+              </Button>
+               
+              </Form.Group>
+            </Form>
+
               <br/>
-              <button className="button button2" >7:00 pm</button>
-              <button className="button button2" >7:00 pm</button>
-              <br/>
-              <button className="button button2" >7:00 pm</button>
-              <button className="button button2" >7:00 pm</button>
-              <br/>
-              <button className="button button2" >7:00 pm</button>
-              <button className="button button2" >7:00 pm</button>
-              <br/>
-              <Link to="./enterDetails/" style={{textDecoration:"none"}}>
-              <Button variant="contained" style={{marginTop:"30px",width:"200px",height:"40px",backgroundColor:"#337AB7",fontSize:"15px"}}
+              <Link to="./phoneAuthentication" style={{textDecoration:"none"}}>
+              <Button variant="contained" style={{marginTop:"30px",width:"200px",height:"40px",backgroundColor:"#337AB7",fontSize:"15px",color:"white"}}
               
               >Submit</Button>
               

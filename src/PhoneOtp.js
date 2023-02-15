@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import { auth } from "./firebase";
 import firebase from "./firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+
 
 const PhoneVerification = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -75,6 +77,13 @@ const PhoneVerification = () => {
       <button onClick={handleVerifyCode} className="btn btn-success" style={{width:"180px",height:"30px",fontSize:"14px",marginBottom:"30px"}}>
         Verify Code
       </button>
+      <br/>
+      <Link to="./enterDetails" style={{textDecoration:"none"}}>
+      <button className="btn btn-primary" style={{width:"180px",height:"30px",fontSize:"14px",marginBottom:"30px"}}>
+       Confirm
+    </button>
+      </Link>
+      
     </div>
   );
 };
