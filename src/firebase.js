@@ -7,6 +7,7 @@ import "firebase/compat/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDmz4CEtBk8KKI1kBTD-yyt2NYk6N3JQUQ",
   authDomain: "calendar-app-7f344.firebaseapp.com",
+  databaseURL: "https://calendar-app-7f344-default-rtdb.firebaseio.com",
   projectId: "calendar-app-7f344",
   storageBucket: "calendar-app-7f344.appspot.com",
   messagingSenderId: "408982903980",
